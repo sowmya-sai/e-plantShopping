@@ -73,12 +73,12 @@
 .cart-item-delete:hover {
   background-color: #cc0000;
 }
-/* .cart-item-button-dec{
+ .cart-item-button-dec{
   background-color: red;
 }
 .cart-item-button-inc{
   background-color: green;
-} */
+} 
 @media (max-width: 768px) {
   .cart-item {
     flex-direction: column; /* Change flex direction to stack items vertically */
@@ -113,7 +113,7 @@
   .cart-item-image {
     width: 200px;
     height: 200px;
-    /* object-fit: contain; */
+    object-fit: contain; 
     margin-right: 20px;
   }
   
@@ -173,12 +173,12 @@
   .cart-item-delete:hover {
     background-color: #cc0000;
   }
-  /* .cart-item-button-dec{
+   .cart-item-button-dec{
     background-color: red;
   }
   .cart-item-button-inc{
     background-color: green;
-  } */
+  } 
   @media (max-width: 768px) {
     .cart-item {
       flex-direction: column; /* Change flex direction to stack items vertically */
@@ -204,7 +204,7 @@
   
 
   .cart-container{
-    /* text-align: center; */
+    text-align: center; */
     display: flex;
     align-items: center;
     flex-direction: column;

@@ -42,7 +42,7 @@
   transform: translate(-50%, -50%);
   z-index: 1;
   text-align: center;
-  /* background-color: red; */
+  background-color: red; 
   width: 400px;
   height: 400px;
   display: flex;
@@ -89,7 +89,7 @@
   background-color: #45a049;
 }
 
-/* ProductList.css */
+/*.ProductList.css */
 
 .product-list-container {
   position: absolute;
