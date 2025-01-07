@@ -21,8 +21,8 @@
   height: 100%;
   background-image: url('https://cdn.pixabay.com/photo/2017/07/13/08/59/greenhouse-2499758_1280.jpg');
   background-size: 100% 100%;
-  background-position: center;
-  filter: brightness(0.8);
+  /*background-position: center;
+  filter: brightness(0.8);*/
 }
 .content {
   display: flex;
@@ -33,7 +33,7 @@
  top: 100px;
   backdrop-filter: blur(4px);
   background-color: rgba(0,0,0,0.5);
-  gap: 20px;
+  gap: 10px;
 }
 
 .landing_content {
@@ -42,14 +42,14 @@
   transform: translate(-50%, -50%);
   z-index: 1;
   text-align: center;
-  background-color: red; 
+  /*background-color: red; */
   width: 400px;
   height: 400px;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  gap: 10px;
+  gap: 5px;
 }
 
 .content p,

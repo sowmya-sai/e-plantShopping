@@ -1,11 +1,16 @@
 import React, { useState,useEffect } from 'react';
 import './ProductList.css'
+import { useDispatch,useSelector } from 'react-redux';
 import CartItem from './CartItem';
-import addItem from './CartSlice';
+import {addItem} from './CreateSlice';
 function ProductList() {
     const [showCart, setShowCart] = useState(false); 
     const [showAboutUs, setShowAboutUs] = useState(false); // State to control the visibility of the About Us page
-    const [addedToCart, setAddedToCart] = useState({});
+    const [addedoCart, setAddedtoCart] = useState({});
+    const dispatch=useDispatch();
+    const totalQuantity=useSelector((state)=>state.cart.totalQuantity);
+    const items=useSelector((state)=>state.cart.items);
+
     const plantsArray = [
         {
             category: "Air Purifying Plants",
@@ -239,6 +244,7 @@ function ProductList() {
 };
 const handleAboutUsClick = (e) => {
     e.preventDefault();
+    //showAboutUs(true);
     setShowAboutUs(true); // Set showAboutUs to true when "About Us" link is clicked
     setShowCart(false); // Hide the cart when navigating to About Us
 };
@@ -248,10 +254,9 @@ const handleAboutUsClick = (e) => {
     setShowCart(false);
   };
   const handleAddToCart = (product) => {
-  dispatch(addItem(product));
-  setAddedToCart((prevState) => ({
-     ...prevState,
-     [product.name]: true, // Set the product name as key and value as true to indicate it's added to cart
+   dispatch(addItem(product));
+  setAddedtoCart((prevState) => ({
+     ...prevState,[product.name]: true, // Set the product name as key and value as true to indicate it's added to cart
    }));
 };
     return (
@@ -276,23 +281,28 @@ const handleAboutUsClick = (e) => {
         </div>
         {!showCart? (
         <div className="product-grid">
-                {plantsArray.map((category, index) => (
+                {plantsArray.map((item, index) => (
     <div key={index}>
-        <h1><div>{category.category}</div></h1>
+        <h1><div>{item.category}</div></h1>
         <div className="product-list">
-            {category.plants.map((plant, plantIndex) => (
+            {item.plants.map((plant, plantIndex) => (
             <div className="product-card" key={plantIndex}>
                 <img className="product-image" src={plant.image} alt={plant.name} />
                 <div className="product-name">{plant.name}</div>
-                <div className="product-description">{plant.description}</div>
                 <div className="product-cost">{plant.cost}</div>
                 {/*Similarly like the above plant.name show other details like description and cost*/}
-                <button  className="product-button" onClick={() => handleAddToCart(plant)}>Add to Cart</button>
-            </div>
-            ))}
+                <div>{plant.description}</div>
+                { !items.find((sample)=>sample.name===plant.name)?(
+                <button className="product-button" onClick={()=>handleAddToCart(plant)}>Add to Cart</button>
+                ):(<h3 className='product-button added-to-cart'>Added to Cart</h3>) 
+                }
+                    </div>
+            ))
+        }
         </div>
     </div>
-    ))}
+    ))
+    }
 
 
         </div>
